@@ -7,21 +7,25 @@ const Main = document.querySelector("#main");
 
 
 function calc(initial, quant, current) {
-    if(initial > current) {
+    if(initial === "" || quant === "" || current === ""){
+        printOutput("Please enter all the values. <br />")
+    } else if(Number(initial) <= 0 || Number(quant) <= 0 || Number(current) <= 0 ) {
+        printOutput("Values cannot be less than 0. Please check!! <br/>");
+    }
+    else if(initial > current) {
         const loss = (initial - current) * quant;
-        const lossPer = (loss / initial) * 100;
-        showOutput("Hey the loss is "+loss+" and the loss percentage is "+lossPer+"%");
+        const lossPer = (loss / (initial*quant)) * 100;
+        printOutput("Hey the loss is "+loss+" and the loss percentage is "+lossPer+"%");
     } else if(current > initial) {
         const profit = (current - initial) * quant;
-        const profitPer = (profit / initial) * 100;
-        showOutput("Hey the profit is "+profit+" and the profit percentage is "+profitPer+"% ");
+        const profitPer = (profit / (initial*quant)) * 100;
+        printOutput("Hey the profit is "+profit+" and the profit percentage is "+profitPer+"% ");
     } else {
-        showOutput("Error");
+        printOutput("Error");
     }
 }
 
 function submit() {    
-    Main.style.display = 'none';
     var ip = Number(InitialP.value);
     var qty = Number(Quantity.value);
     var cp = Number(CurrentP.value);
@@ -30,7 +34,7 @@ function submit() {
 
 }
 
-function showOutput(message) {
+function printOutput(message) {
     OutputBox.innerHTML = message;
 }
 

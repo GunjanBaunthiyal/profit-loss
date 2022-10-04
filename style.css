@@ -6,7 +6,8 @@
     box-sizing: border-box;
 }
 :root {
-    --primary-color:#7c3aed;
+    --primary-color:#cc2b5e;
+    --second-color:#753a88;
 }
 
 html, body{
@@ -20,12 +21,13 @@ html, body{
 header h1{
     text-align: center;
     margin: 1.5rem;
+    font-size: x-large;
+    color: var(--second-color);
 }
 
 .input-label{
     display: block;
-    padding-bottom: 0.5rem;
-    font-size: large;
+    font-size:medium;
     margin: 1.3rem 0px;
     font-weight: 600;
 }
@@ -46,7 +48,7 @@ header h1{
 #btn{
     padding:0.5rem;
     margin:auto;
-    background: var(--primary-color);
+    background: var(--second-color);
     border: none;
     color: #fff;
     padding: 0.7rem 1rem;
